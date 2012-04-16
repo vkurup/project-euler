@@ -11,6 +11,8 @@ def sum_primes_below(n):
         possibles = [i for i in possibles if i%next_prime != 0]
     return sum
 
-print str(sum_primes_below(10))
+print sum_primes_below(10)
+print sum_primes_below(2000000)
+
 
 
