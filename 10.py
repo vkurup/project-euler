@@ -1,18 +1,15 @@
 #!/usr/bin/env python2
 
 # Calculate the sum of primes below 2,000,000
+import math
 
-def sum_primes_below(n):
-    sum = 0
-    possibles = range(2,n)
-    while len(possibles) > 0:
-        next_prime = possibles[0]
-        sum += next_prime
-        possibles = [i for i in possibles if i%next_prime != 0]
-    return sum
+def is_prime(n):
+    for i in range(2,int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
 
-print sum_primes_below(10)
-print sum_primes_below(2000000)
+def sum_primes_below_n(n):
+    return sum(filter(is_prime,range(2,n)))
 
-
-
+print sum_primes_below_n(2000000)
