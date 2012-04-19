@@ -14,6 +14,9 @@ def divisors(n):
             divisors.append(n / i)
     return sorted(set(divisors))
 
+def odd(n):
+    return n%2 != 0
+
 def first_triangle_with_n_divisors(n):
     "Return first triangle number with greater than n divisors"
     length = 0
@@ -22,6 +25,7 @@ def first_triangle_with_n_divisors(n):
     while length <= n:
         i += 1
         next_triangle += i
+        if odd(next_triangle): continue
         length = len(divisors(next_triangle))
     return next_triangle
 
